@@ -1,8 +1,6 @@
 const db = require("../db")
 const { BadRequestError, UnauthorizedError } = require("../utils/errors")
 
-const { Unauthorized } = required("./utils/errors")
-
 class User {
     static async login(credentials) {
 
@@ -16,11 +14,6 @@ class User {
                 throw new BadRequestError(`Missing ${field} in request body.`)
             }
         })
-        try {
-
-        } catch (err) {
-            throw err
-        }
 
         const existingUser = await User.fetchUserByEmail(credentials.email)
         if (existingUser) {
